@@ -37,6 +37,14 @@ def create_file(path, name):
     else:
         return 'File already exists'
 
+def delete_file(path, name):
+    filename = os.path.join(path, name)
+    if os.path.exists(filename):
+        os.remove(filename)
+        return 'Successfully deleted file'
+    else:
+        return 'File does not exist'
+
 def write_file(path, name, words):
     filename = os.path.join(path, name)
     file = open(filename, 'a')
@@ -54,14 +62,6 @@ def read_file(path, name):
         text = file.read()
         file.close()
         return text
-    else:
-        return 'File does not exist'
-    
-def delete_file(path, name):
-    filename = os.path.join(path, name)
-    if os.path.exists(filename):
-        os.remove(filename)
-        return 'Successfully deleted file'
     else:
         return 'File does not exist'
 
